@@ -22,7 +22,7 @@ public class Common {
 
     public static String convertirUnidadesAHoras(int sunrise) {
         Date date = new Date(sunrise*1000L);
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.US);
         return sdf.format(date);
     }
 }

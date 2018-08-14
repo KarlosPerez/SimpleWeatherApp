@@ -33,8 +33,8 @@ import retrofit2.Retrofit;
 public class TodayWeatherFragment extends Fragment {
 
     ImageView imgWeather;
-    TextView txtCityName, txtHumidity, txtSunrise, txtSunset, txtPressure,
-            txtTemperature, txtDescription, txtDateTime, txtWind, txtGeoCoord, txtWeatherDescription;
+    TextView txtCityName, txtHumidity, txtSunrise, txtSunset, txtPressure, txtTemperature,
+            txtDescription, txtDateTime, txtWind, txtGeoCoord, txtWeatherDescription;
     CardView weatherPanel;
     ProgressBar load;
 
@@ -55,12 +55,18 @@ public class TodayWeatherFragment extends Fragment {
         iOpenWeatherMap = retrofit.create(IOpenWeatherMap.class);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View itemView = inflater.inflate(R.layout.fragment_today_weather, container, false);
 
+        inicializarUI(itemView);
+        cargarInformacionClimaHoy();
+
+        return itemView;
+    }
+
+    private void inicializarUI(View itemView) {
         imgWeather = itemView.findViewById(R.id.imgWeather);
         txtCityName = itemView.findViewById(R.id.txtCityName);
         txtWeatherDescription = itemView.findViewById(R.id.txtWeatherDescription);
@@ -77,12 +83,9 @@ public class TodayWeatherFragment extends Fragment {
 
         weatherPanel = itemView.findViewById(R.id.weather_panel);
         load = itemView.findViewById(R.id.loading);
-
-        obtenerInformacionClima();
-        return itemView;
     }
 
-    private void obtenerInformacionClima() {
+    private void cargarInformacionClimaHoy() {
         compositeDisposable.add(iOpenWeatherMap.getWeatherByLatLng(String.valueOf(Common.localizacion_Actual.getLatitude()),
                 String.valueOf(Common.localizacion_Actual.getLongitude()),Common.APP_ID,
                 Common.UNIDAD_MEDIDA)
@@ -91,27 +94,7 @@ public class TodayWeatherFragment extends Fragment {
         .subscribe(new Consumer<WeatherResult>() {
             @Override
             public void accept(WeatherResult weatherResult) throws Exception {
-                //Cargar imagen
-                Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/").append(weatherResult.getWeather().get(0).getIcon())
-                .append(".png").toString()).into(imgWeather);
-                //Cargar textos
-                txtCityName.setText(weatherResult.getName());
-                txtDescription.setText(new StringBuilder("Weather in ")
-                        .append(weatherResult.getName()).toString());
-                txtTemperature.setText(new StringBuilder(
-                        String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
-                txtDateTime.setText(Common.convertirUnidadesAFecha(weatherResult.getDt()));
-                txtWeatherDescription.setText(weatherResult.getWeather().get(0).getDescription());
-                txtPressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append(" hpa").toString());
-                txtHumidity.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getHumidity())).append(" %").toString());
-                txtSunrise.setText(Common.convertirUnidadesAHoras(weatherResult.getSys().getSunrise()));
-                txtSunset.setText(Common.convertirUnidadesAHoras(weatherResult.getSys().getSunset()));
-                txtGeoCoord.setText(new StringBuilder(weatherResult.getCoord().toString()).toString());
-                txtWind.setText(new StringBuilder("Speed: ").append(weatherResult.getWind().getSpeed())
-                        .append(" m/s "));
-                //Mostrar panel
-                weatherPanel.setVisibility(View.VISIBLE);
-                load.setVisibility(View.GONE);
+                mostrarInformacionClimaHoy(weatherResult);
             }
         }, new Consumer<Throwable>() {
             @Override
@@ -119,6 +102,30 @@ public class TodayWeatherFragment extends Fragment {
                 Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }));
+    }
+
+    private void mostrarInformacionClimaHoy(WeatherResult weatherResult) {
+        //Cargar imagen
+        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/").append(weatherResult.getWeather().get(0).getIcon())
+                .append(".png").toString()).into(imgWeather);
+        //Cargar información a los campos
+        txtCityName.setText(weatherResult.getName());
+        txtDescription.setText(new StringBuilder("Weather in ")
+                .append(weatherResult.getName()).toString());
+        txtTemperature.setText(new StringBuilder(
+                String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
+        txtDateTime.setText(Common.convertirUnidadesAFecha(weatherResult.getDt()));
+        txtWeatherDescription.setText(weatherResult.getWeather().get(0).getDescription());
+        txtPressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append(" hpa").toString());
+        txtHumidity.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getHumidity())).append(" %").toString());
+        txtSunrise.setText(Common.convertirUnidadesAHoras(weatherResult.getSys().getSunrise()));
+        txtSunset.setText(Common.convertirUnidadesAHoras(weatherResult.getSys().getSunset()));
+        txtGeoCoord.setText(new StringBuilder(weatherResult.getCoord().toString()).toString());
+        txtWind.setText(new StringBuilder("Speed: ").append(weatherResult.getWind().getSpeed())
+                .append(" m/s "));
+        //Mostrar panel
+        weatherPanel.setVisibility(View.VISIBLE);
+        load.setVisibility(View.GONE);
     }
 
     @Override

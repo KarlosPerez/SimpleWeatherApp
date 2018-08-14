@@ -49,13 +49,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        coordinatorLayout = findViewById(R.id.root_view);
-        toolbar = findViewById(R.id.toolbar);
+        inicializarUI();
         setSupportActionBar(toolbar);
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
 
-        //Request permission
+        //Request permissions
+        gestionarPermisos();
+    }
+
+    private void buildLocationRequest() {
+        locationRequest = new LocationRequest();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(5000);
+        locationRequest.setFastestInterval(3000);
+        locationRequest.setSmallestDisplacement(10.0f);
+    }
+
+    private void buildLocationCallback() {
+        locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                super.onLocationResult(locationResult);
+                Common.localizacion_Actual = locationResult.getLastLocation();
+                setupViewPager(viewPager);
+                tabLayout.setupWithViewPager(viewPager);
+            }
+        };
+    }
+
+    private void inicializarUI() {
+        coordinatorLayout = findViewById(R.id.root_view);
+        toolbar = findViewById(R.id.toolbar);
+        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tabs);
+    }
+
+    private void gestionarPermisos() {
         Dexter.withActivity(this)
                 .withPermissions(Manifest.permission.ACCESS_COARSE_LOCATION,
                         Manifest.permission.ACCESS_FINE_LOCATION)
@@ -80,36 +110,6 @@ public class MainActivity extends AppCompatActivity {
                         Snackbar.make(coordinatorLayout,"Permission Denied",Snackbar.LENGTH_LONG).show();
                     }
                 }).check();
-    }
-
-    private void buildLocationRequest() {
-        locationRequest = new LocationRequest();
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(3000);
-        locationRequest.setSmallestDisplacement(10.0f);
-    }
-
-    private void buildLocationCallback() {
-        locationCallback = new LocationCallback() {
-
-            @Override
-            public void onLocationResult(LocationResult locationResult) {
-                super.onLocationResult(locationResult);
-
-                Common.localizacion_Actual = locationResult.getLastLocation();
-
-                viewPager = findViewById(R.id.view_pager);
-                setupViewPager(viewPager);
-                tabLayout = findViewById(R.id.tabs);
-                tabLayout.setupWithViewPager(viewPager);
-
-                //Log
-                Log.d("Location",locationResult.getLastLocation().getLatitude()+"/"+
-                        locationResult.getLastLocation().getLongitude());
-            }
-        };
-
     }
 
     private void setupViewPager(ViewPager viewPager) {

@@ -11,16 +11,14 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
 import projects.karlosp3rez.androidweatherapp.Common.Common;
 import projects.karlosp3rez.androidweatherapp.Model.WeatherForecastResult;
 import projects.karlosp3rez.androidweatherapp.R;
 
 public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecastAdapter.ForecastViewHolder> {
 
-    Context context;
-    WeatherForecastResult weatherForecastResult;
+    private Context context;
+    private WeatherForecastResult weatherForecastResult;
 
     public WeatherForecastAdapter(Context context, WeatherForecastResult weatherForecastResult) {
         this.context = context;
@@ -50,19 +48,17 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
         return weatherForecastResult.list.size();
     }
 
-    public class ForecastViewHolder extends RecyclerView.ViewHolder {
+    class ForecastViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtDateTime, txtDescription, txtTemperature;
         ImageView imgWeather;
 
-        public ForecastViewHolder(View itemView) {
+        ForecastViewHolder(View itemView) {
             super(itemView);
-
-            imgWeather = (ImageView) itemView.findViewById(R.id.imgWeather);
-            txtDateTime = (TextView) itemView.findViewById(R.id.txtDate);
-            txtDescription = (TextView) itemView.findViewById(R.id.txtDescription);
-            txtTemperature = (TextView) itemView.findViewById(R.id.txtTemperature);
-
+            imgWeather = itemView.findViewById(R.id.imgWeather);
+            txtDateTime = itemView.findViewById(R.id.txtDate);
+            txtDescription = itemView.findViewById(R.id.txtDescription);
+            txtTemperature = itemView.findViewById(R.id.txtTemperature);
         }
     }
 }

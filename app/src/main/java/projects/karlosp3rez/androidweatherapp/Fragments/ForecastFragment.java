@@ -2,6 +2,7 @@ package projects.karlosp3rez.androidweatherapp.Fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,7 +37,7 @@ public class ForecastFragment extends Fragment {
     TextView txtCityName, txtGeoCoord;
     RecyclerView forecastRecycler;
 
-    static ForecastFragment instance;
+    protected static ForecastFragment instance;
 
     public static ForecastFragment getInstance() {
         if(instance == null)
@@ -52,15 +53,14 @@ public class ForecastFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View itemView = inflater.inflate(R.layout.fragment_forecast, container, false);
 
         txtCityName = itemView.findViewById(R.id.txtCityName);
         txtGeoCoord = itemView.findViewById(R.id.txtGeoCoord);
 
-        forecastRecycler = (RecyclerView) itemView.findViewById(R.id.recycler_forecast);
+        forecastRecycler = itemView.findViewById(R.id.recycler_forecast);
         forecastRecycler.setHasFixedSize(true);
         forecastRecycler.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
 
