@@ -6,4 +6,5 @@
     <color name="windowBackground">#ffffff</color>
     <color name="textColorPrimay">#ffffff</color>
     <color name="navigationBarcolor">#000000</color>
+    <color name="cardview_background">#F5F5F5</color>
 </resources>
