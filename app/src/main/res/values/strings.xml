@@ -2,5 +2,5 @@
     <string name="app_name">AndroidWeatherApp</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Today Weather</string>
+    <string name="hello_blank_fragment">Clima de hoy</string>
 </resources>
