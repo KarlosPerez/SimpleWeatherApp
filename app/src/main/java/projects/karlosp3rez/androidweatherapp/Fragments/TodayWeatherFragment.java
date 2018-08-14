@@ -1,9 +1,9 @@
-package projects.karlosp3rez.androidweatherapp;
+package projects.karlosp3rez.androidweatherapp.Fragments;
 
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +21,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import projects.karlosp3rez.androidweatherapp.Common.Common;
 import projects.karlosp3rez.androidweatherapp.Model.WeatherResult;
+import projects.karlosp3rez.androidweatherapp.R;
 import projects.karlosp3rez.androidweatherapp.Retrofit.IOpenWeatherMap;
 import projects.karlosp3rez.androidweatherapp.Retrofit.RetrofitClient;
 import retrofit2.Retrofit;
@@ -34,7 +35,7 @@ public class TodayWeatherFragment extends Fragment {
     ImageView imgWeather;
     TextView txtCityName, txtHumidity, txtSunrise, txtSunset, txtPressure,
             txtTemperature, txtDescription, txtDateTime, txtWind, txtGeoCoord, txtWeatherDescription;
-    LinearLayout weatherPanel;
+    CardView weatherPanel;
     ProgressBar load;
 
     CompositeDisposable compositeDisposable;
@@ -84,7 +85,7 @@ public class TodayWeatherFragment extends Fragment {
     private void obtenerInformacionClima() {
         compositeDisposable.add(iOpenWeatherMap.getWeatherByLatLng(String.valueOf(Common.localizacion_Actual.getLatitude()),
                 String.valueOf(Common.localizacion_Actual.getLongitude()),Common.APP_ID,
-                "metric")
+                Common.UNIDAD_MEDIDA)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new Consumer<WeatherResult>() {
@@ -118,6 +119,18 @@ public class TodayWeatherFragment extends Fragment {
                 Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }));
+    }
+
+    @Override
+    public void onStop() {
+        compositeDisposable.clear();
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        compositeDisposable.clear();
+        super.onDestroy();
     }
 
 }

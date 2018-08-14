@@ -11,11 +11,12 @@ public class Common {
 
     //Se crea una API key desde la web de OpenWeatherMap
     public static final String APP_ID = "981b35f51fb519dc2415d752c23fccf4";
+    public static final String UNIDAD_MEDIDA = "metric";
     public static Location localizacion_Actual = null;
 
     public static String convertirUnidadesAFecha(int dateTime) {
         Date date = new Date(dateTime*1000L);
-        DateFormat sdf = new SimpleDateFormat("HH:mm EEE MM yyyy", Locale.US);
+        DateFormat sdf = new SimpleDateFormat("HH:mm dd EEE MM yyyy", Locale.US);
         return sdf.format(date);
     }
 

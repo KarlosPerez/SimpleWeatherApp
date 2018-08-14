@@ -29,6 +29,8 @@ import java.util.Objects;
 
 import projects.karlosp3rez.androidweatherapp.Adapter.ViewPagerAdapter;
 import projects.karlosp3rez.androidweatherapp.Common.Common;
+import projects.karlosp3rez.androidweatherapp.Fragments.ForecastFragment;
+import projects.karlosp3rez.androidweatherapp.Fragments.TodayWeatherFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -113,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(TodayWeatherFragment.getInstance(),"Hoy");
+        adapter.addFragment(ForecastFragment.getInstance(), "5 Días");
         viewPager.setAdapter(adapter);
     }
 }
