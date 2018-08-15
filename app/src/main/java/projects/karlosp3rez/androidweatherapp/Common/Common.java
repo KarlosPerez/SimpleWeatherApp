@@ -12,6 +12,8 @@ public class Common {
     //Se crea una API key desde la web de OpenWeatherMap
     public static final String APP_ID = "981b35f51fb519dc2415d752c23fccf4";
     public static final String UNIDAD_MEDIDA = "metric";
+    public static final String API_URL = "https://api.openweathermap.org/data/2.5/";
+    public static final String IMG_URL = "https://openweathermap.org/img/w/";
     public static Location localizacion_Actual = null;
 
     public static String convertirUnidadesAFecha(int dateTime) {

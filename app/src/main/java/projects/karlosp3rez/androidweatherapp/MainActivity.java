@@ -107,15 +107,15 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        Snackbar.make(coordinatorLayout,"Permission Denied",Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(coordinatorLayout, getString(R.string.permission_denied),Snackbar.LENGTH_LONG).show();
                     }
                 }).check();
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(TodayWeatherFragment.getInstance(),"Hoy");
-        adapter.addFragment(ForecastFragment.getInstance(), "5 Días");
+        adapter.addFragment(TodayWeatherFragment.getInstance(),getString(R.string.hint_today));
+        adapter.addFragment(ForecastFragment.getInstance(), getString(R.string.hint_forecast_5d));
         viewPager.setAdapter(adapter);
     }
 }

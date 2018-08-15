@@ -30,7 +30,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Clima en Ciudad X"
+                android:text="@string/dummy_cityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -49,9 +49,9 @@
                     android:id="@+id/txtTemperature"
                     android:textSize="50sp"
                     android:textStyle="bold"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
                     android:textColor="@color/colorPrimary"
-                    android:text="14 C"
+                    android:text="@string/dummy_temperature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -62,7 +62,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Clima en Ciudad X"
+                android:text="@string/dummy_cityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -71,7 +71,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:text="Clima en Ciudad X"
+                android:text="@string/dummy_cityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -89,15 +89,15 @@
 
                     <TextView
                         android:background="@drawable/cell"
-                        android:text="Description"
+                        android:text="@string/hint_description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:id="@+id/txtWeatherDescription"
                         android:layout_column="1"
-                        android:text="overcast clouds"
+                        android:text="@string/dummy_description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -109,15 +109,15 @@
 
                     <TextView
                         android:background="@drawable/cell"
-                        android:text="Wind"
+                        android:text="@string/hint_wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:id="@+id/txtWind"
                         android:layout_column="1"
-                        android:text="Speed: 1 Deg: 1"
+                        android:text="@string/dummy_wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -129,15 +129,15 @@
 
                     <TextView
                         android:background="@drawable/cell"
-                        android:text="Pressure"
+                        android:text="@string/hint_pressure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:id="@+id/txtPressure"
                         android:layout_column="1"
-                        android:text="1013.75 hpa"
+                        android:text="@string/dummy_pressure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -149,15 +149,15 @@
 
                     <TextView
                         android:background="@drawable/cell"
-                        android:text="Humidity"
+                        android:text="@string/hint_humidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:id="@+id/txtHumidity"
                         android:layout_column="1"
-                        android:text="100%"
+                        android:text="@string/dummy_humidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -169,15 +169,15 @@
 
                     <TextView
                         android:background="@drawable/cell"
-                        android:text="Sunrise"
+                        android:text="@string/hint_sunrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:id="@+id/txtSunrise"
                         android:layout_column="1"
-                        android:text="11:00"
+                        android:text="@string/dummy_sunrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -189,15 +189,15 @@
 
                     <TextView
                         android:background="@drawable/cell"
-                        android:text="Sunset"
+                        android:text="@string/hint_sunset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:id="@+id/txtSunset"
                         android:layout_column="1"
-                        android:text="18:00"
+                        android:text="@string/dummy_sunset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -209,15 +209,15 @@
 
                     <TextView
                         android:background="@drawable/cell"
-                        android:text="Geo Coord "
+                        android:text="@string/hint_geoCoords"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:id="@+id/txtGeoCoord"
                         android:layout_column="1"
-                        android:text="[32.0;-81.0]"
+                        android:text="@string/dummy_geoCoords"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 

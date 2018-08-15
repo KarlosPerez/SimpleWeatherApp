@@ -106,23 +106,23 @@ public class TodayWeatherFragment extends Fragment {
 
     private void mostrarInformacionClimaHoy(WeatherResult weatherResult) {
         //Cargar imagen
-        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/").append(weatherResult.getWeather().get(0).getIcon())
+        Picasso.get().load(new StringBuilder(Common.IMG_URL).append(weatherResult.getWeather().get(0).getIcon())
                 .append(".png").toString()).into(imgWeather);
         //Cargar información a los campos
         txtCityName.setText(weatherResult.getName());
-        txtDescription.setText(new StringBuilder("Weather in ")
+        txtDescription.setText(new StringBuilder(getString(R.string.hint_weather_in)).append(" ")
                 .append(weatherResult.getName()).toString());
         txtTemperature.setText(new StringBuilder(
                 String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
         txtDateTime.setText(Common.convertirUnidadesAFecha(weatherResult.getDt()));
         txtWeatherDescription.setText(weatherResult.getWeather().get(0).getDescription());
-        txtPressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append(" hpa").toString());
+        txtPressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append(getString(R.string.pressure_unit)).toString());
         txtHumidity.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getHumidity())).append(" %").toString());
         txtSunrise.setText(Common.convertirUnidadesAHoras(weatherResult.getSys().getSunrise()));
         txtSunset.setText(Common.convertirUnidadesAHoras(weatherResult.getSys().getSunset()));
         txtGeoCoord.setText(new StringBuilder(weatherResult.getCoord().toString()).toString());
-        txtWind.setText(new StringBuilder("Speed: ").append(weatherResult.getWind().getSpeed())
-                .append(" m/s "));
+        txtWind.setText(new StringBuilder(getString(R.string.hint_speed)).append(weatherResult.getWind().getSpeed())
+                .append(getString(R.string.hint_speed_unit)));
         //Mostrar panel
         weatherPanel.setVisibility(View.VISIBLE);
         load.setVisibility(View.GONE);

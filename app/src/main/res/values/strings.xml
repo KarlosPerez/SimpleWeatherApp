@@ -1,6 +1,30 @@
 <resources>
     <string name="app_name">AndroidWeatherApp</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Clima de hoy</string>
+    <string name="forecast_title">PRONÓSTICO A 5 DÍAS</string>
+    <string name="dummy_cityName">Clima en X ciudad</string>
+    <string name="dummy_coords">[35.42]</string>
+    <string name="dummy_temperature">14 C</string>
+    <string name="dummy_description">nublado</string>
+    <string name="hint_description">Descripción </string>
+    <string name="hint_wind">Viento</string>
+    <string name="dummy_wind">Velocidad: 1 m/s</string>
+    <string name="hint_pressure">Presión </string>
+    <string name="dummy_pressure">1013.75 hpa</string>
+    <string name="hint_humidity">Humedad </string>
+    <string name="dummy_humidity">100%</string>
+    <string name="hint_sunrise">Amanecer </string>
+    <string name="dummy_sunrise">11:00</string>
+    <string name="hint_sunset">Ocaso</string>
+    <string name="dummy_sunset">18:00</string>
+    <string name="hint_geoCoords">Coordenadas </string>
+    <string name="dummy_geoCoords">[32.0;-81.0]</string>
+    <string name="dummy_date">19:00 14 Tue 08 2018</string>
+    <string name="permission_denied">Permiso denegado</string>
+    <string name="hint_today">Hoy</string>
+    <string name="hint_forecast_5d">5 Días</string>
+    <string name="hint_weather_in">Clima En </string>
+    <string name="pressure_unit"> hpa</string>
+    <string name="hint_speed">Speed </string>
+    <string name="hint_speed_unit"> m/s</string>
 </resources>

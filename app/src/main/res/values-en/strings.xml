@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidWeatherApp</string>
+
+    <string name="forecast_title">5 DAYS FORECAST</string>
+    <string name="dummy_cityName">Weather in X City</string>
+    <string name="dummy_coords">[35.42]</string>
+    <string name="dummy_temperature">14 C</string>
+    <string name="dummy_description">overcast clouds</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_wind">Wind</string>
+    <string name="dummy_wind">Speed: 1 Deg: 1</string>
+    <string name="hint_pressure">Pressure</string>
+    <string name="dummy_pressure">1013.75 hpa</string>
+    <string name="hint_humidity">Humidity</string>
+    <string name="dummy_humidity">100%</string>
+    <string name="hint_sunrise">Sunrise</string>
+    <string name="dummy_sunrise">11:00</string>
+    <string name="hint_sunset">Sunset</string>
+    <string name="dummy_sunset">18:00</string>
+    <string name="hint_geoCoords">Geo Coord</string>
+    <string name="dummy_geoCoords">[32.0;-81.0]</string>
+    <string name="dummy_date">19:00 14 Tue 08 2018</string>
+    <string name="permission_denied">Permissions Denied</string>
+    <string name="hint_today">Today</string>
+    <string name="hint_forecast_5d">5 Days</string>
+    <string name="hint_weather_in">Weather In</string>
+    <string name="pressure_unit">hpa</string>
+    <string name="hint_speed">Speed</string>
+    <string name="hint_speed_unit">m/s</string>
+</resources>
