@@ -15,3 +15,7 @@ This is a simple app, information of the current weather is fetched at start. I 
 * Dexter Library to simplify the process of requesting permissions at runtime
 * Retrofit for requests to the API
 * Location Services
+
+## Preview
+
+![preview](https://github.com/KarlosPerez/SimpleWeatherApp/blob/master/preview.png)
