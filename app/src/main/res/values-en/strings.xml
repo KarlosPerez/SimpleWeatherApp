@@ -28,4 +28,6 @@
     <string name="pressure_unit">hpa</string>
     <string name="hint_speed">Speed</string>
     <string name="hint_speed_unit">m/s</string>
+    <string name="hint_cityName">City Name</string>
+    <string name="hint_forecast_cityName">Cities</string>
 </resources>

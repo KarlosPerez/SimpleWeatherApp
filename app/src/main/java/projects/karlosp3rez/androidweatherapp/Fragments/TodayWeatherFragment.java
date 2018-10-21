@@ -89,19 +89,19 @@ public class TodayWeatherFragment extends Fragment {
         compositeDisposable.add(iOpenWeatherMap.getWeatherByLatLng(String.valueOf(Common.localizacion_Actual.getLatitude()),
                 String.valueOf(Common.localizacion_Actual.getLongitude()),Common.APP_ID,
                 Common.UNIDAD_MEDIDA)
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Consumer<WeatherResult>() {
-            @Override
-            public void accept(WeatherResult weatherResult) throws Exception {
-                mostrarInformacionClimaHoy(weatherResult);
-            }
-        }, new Consumer<Throwable>() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }));
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<WeatherResult>() {
+                    @Override
+                    public void accept(WeatherResult weatherResult) throws Exception {
+                        mostrarInformacionClimaHoy(weatherResult);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }));
     }
 
     private void mostrarInformacionClimaHoy(WeatherResult weatherResult) {
