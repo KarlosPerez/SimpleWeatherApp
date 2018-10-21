@@ -16,7 +16,6 @@
         app:cardCornerRadius="4dp"
         app:contentPadding="18dp"
         app:cardElevation="4dp"
-        android:visibility="gone"
         app:cardBackgroundColor="@color/cardview_background"
         app:cardUseCompatPadding="true">
 
